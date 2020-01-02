@@ -4,7 +4,6 @@ import seaborn as sn
 import pandas as pd
 # from sklearn.metrics import plot_confusion_matrix
 
-
 def separate_training_data(data, label, percent):
 	length = data.shape[0]
 	amount = int(length * (percent / 100))
