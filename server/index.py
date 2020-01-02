@@ -11,22 +11,22 @@ def run(path, n):
 	data_buckets, label_buckets = create_buckets(data, label_list, n)
 	# print(label_buckets)
 
-	for i, bucket in enumerate(data_buckets):
-		test_data = bucket
-		test_labels = label_buckets[i]
-		train_labels = np.concatenate(np.delete(label_buckets, i, axis=0))
-		train_data = np.concatenate(np.delete(data_buckets, i, axis=0))
+	score = crossval_predict(data, label_list, n)
+	print(n + '-fold Cross validation, average: ' + score)
+	print(score)
 
-		fit(train_data, train_labels)
-		norm_array = predict(test_data)
-		result = np.argmax(norm_array, axis=1)
-		print(accuracy_score(result, test_labels))
+	fit(data, label_list)
+	norm_array = predict(data)
+	result = np.argmax(norm_array, axis=1)
+	print(norm_array)
+	print(accuracy_score(result, label_list))
 
-		break
+	confusion_matrix(norm_array, label_list, unique_types, accuracy_score(result, label_list), True)
 
 
 run('Iris/iris.csv', 4)
 run('banknote_authentication.csv', 4)
+
 
 def iris():
 	title, data, types = get_data('Iris/iris.csv')
