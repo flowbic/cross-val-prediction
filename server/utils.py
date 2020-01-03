@@ -23,7 +23,6 @@ def accuracy_score(preds, y):
 
 
 def confusion_matrix(classifier, test_label, class_names, accuracy, showAnnot):
-	print(class_names)
 	classifier = np.round(classifier, decimals=2)
 	df_cm = pd.DataFrame(classifier, columns=[np.unique(class_names)], index=[class_names[i] for i in test_label])
 	plt.figure(figsize=(10, 7))

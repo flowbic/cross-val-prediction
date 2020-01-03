@@ -8,24 +8,22 @@ import numpy as np
 def run(path, n):
 	title, data, types = get_data(path)
 	label_list, unique_types = get_label(types)
-	data_buckets, label_buckets = create_buckets(data, label_list, n)
-	# print(label_buckets)
 
 	score = crossval_predict(data, label_list, n)
-	print(n + '-fold Cross validation, average: ' + score)
-	print(score)
+	print(n, '-fold Cross validation, average: ', score)
 
 	fit(data, label_list)
 	norm_array = predict(data)
 	result = np.argmax(norm_array, axis=1)
-	print(norm_array)
 	print(accuracy_score(result, label_list))
 
-	confusion_matrix(norm_array, label_list, unique_types, accuracy_score(result, label_list), True)
+	# confusion_matrix(norm_array, label_list, unique_types, accuracy_score(result, label_list), False)
 
 
-run('Iris/iris.csv', 4)
-run('banknote_authentication.csv', 4)
+run('Iris/iris.csv', 3)
+run('Iris/iris.csv', 5)
+run('Iris/iris.csv', 10)
+# run('banknote_authentication.csv', 5)
 
 
 def iris():
