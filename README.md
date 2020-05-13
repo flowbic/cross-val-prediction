@@ -11,3 +11,8 @@ The expected output in the terminal when running python index.py.
 The score value may vary
 
 ![Expected terminal output](/server/images/terminal.png)
+
+### Visual
+The expected output the window that opens when running the program on the iris dataset.
+
+![Expected visual output](/server/images/output.png)
