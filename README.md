@@ -10,4 +10,4 @@ Renders predicted and actual results in confusion matrix.
 The expected output in the terminal when running python index.py.
 The score value may vary
 
-![Expected terminal output](/server/terminal.png)
+![Expected terminal output](/server/images/terminal.png)
