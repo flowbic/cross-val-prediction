@@ -16,6 +16,7 @@ def run(path, n):
 	print(accuracy_score(result, label_list))
 
 	confusion_matrix(norm_array, label_list, unique_types, accuracy_score(result, label_list), False)
+	print(result.shape)
 
 
 run('Iris/iris.csv', 5)
